@@ -103,7 +103,7 @@ To get a chip on every abbreviation or ID in a reply (`PROJ-123`, `AB-1`, `C5`, 
 
 ```json
 {
-  "ignore": ["API", "CI", "PR", "OK", "TODO"],
+  "ignore": ["API", "CI", "PR", "LLM", "OK", "TODO"],
   "types": [
     {
       "name": "abbreviations and ids",
@@ -144,7 +144,10 @@ Claude Code terminal:
 ```text
 /plugin marketplace add apova/goldfish-qp
 /plugin install goldfish-qp@goldfish-qp
+/tui fullscreen
 ```
+
+`/tui fullscreen` turns on the interface that reports the mouse; without it nothing is clickable in a terminal.
 
 Claude Desktop's Code tab has no `/plugin`: load the folder with an environment variable, as the [manual verification](#manual-verification-in-claude-desktops-code-tab) below describes.
 
@@ -157,7 +160,7 @@ Goldfish QP keeps the original Quick Peek. Its paths in Claude's replies become 
 - **Code**: a file of code or text (`.js`, `.ts`, `.tsx`, `.html`, `.css`, `.json`, `.md`, `.py`, `.go`, `.rs`, `.sh`, `.yml`, a `Dockerfile`, a `.env` and many more) shows its first 20 lines instead, numbered and coloured, its language and how many lines it has under them. A path with a line (`src/app.ts:42`) shows the lines around it, that one lit.
 - **Click**: Finder opens the folder with the file selected (`open -R`). **Option-click** opens the file itself, with its app.
 
-A path a row cannot hold is drawn in parts, cut after a `/`, and each part is the link. Hovering needs the mouse, so it needs Claude Code's fullscreen interface (`"tui": "fullscreen"` in your settings, or `/config`).
+A path a row cannot hold is drawn in parts, cut after a `/`, and each part is the link. Clicking and hovering need the mouse, so in the terminal they need Claude Code's fullscreen interface: type `/tui fullscreen` in the session (`/tui default` goes back).
 
 ### Other systems
 

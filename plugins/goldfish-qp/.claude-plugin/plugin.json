@@ -1,7 +1,7 @@
 {
   "name": "goldfish-qp",
   "version": "0.1.0",
-  "description": "Goldfish QP, Quick Peek for forgetful humans: click an object, abbreviation or identifier in Claude's reply to see its definition from your own sources, with no LLM call. Also previews the paths Claude mentions.",
+  "description": "Click any abbreviation, ticket or pull request in Claude's replies to see what it means. Definitions come from your own files, trackers and GitHub, are marked current or stale, and cost no extra LLM calls. A fork of Quick Peek.",
   "author": {
     "name": "Goldfish QP contributors",
     "url": "https://github.com/apova/goldfish-qp"

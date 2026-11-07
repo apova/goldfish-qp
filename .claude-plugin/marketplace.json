@@ -5,13 +5,13 @@
     "url": "https://github.com/apova/goldfish-qp"
   },
   "metadata": {
-    "description": "Goldfish QP, Quick Peek for forgetful humans: click an object, abbreviation or identifier in Claude's reply to see its definition from your own sources, with no LLM call. A fork of Quick Peek from midudev/better-claude."
+    "description": "Click any abbreviation, ticket or pull request in Claude's replies to see what it means. Definitions come from your own files, trackers and GitHub, are marked current or stale, and cost no extra LLM calls. A fork of Quick Peek."
   },
   "plugins": [
     {
       "name": "goldfish-qp",
       "source": "./plugins/goldfish-qp",
-      "description": "Click an object, abbreviation or identifier in Claude's reply to see its definition from your own JSON and Markdown sources, with freshness and no LLM call. Also previews the paths Claude mentions.",
+      "description": "Click any abbreviation, ticket or pull request in Claude's replies to see what it means. Definitions come from your own files, trackers and GitHub, are marked current or stale, and cost no extra LLM calls. A fork of Quick Peek.",
       "version": "0.1.0",
       "category": "productivity"
     }

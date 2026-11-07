@@ -34,7 +34,7 @@ If `~/.goldfish-qp.json` exists, **merge** into it; never overwrite. Otherwise c
 
 ```json
 {
-  "ignore": ["API", "CI", "CD", "PR", "OK", "TODO", "NOTE", "JSON", "HTML", "CSS", "URL", "HTTP", "HTTPS", "UTF-8", "README", "FAQ", "MIT", "YAML", "SSH"],
+  "ignore": ["API", "CI", "CD", "PR", "OK", "TODO", "NOTE", "JSON", "HTML", "CSS", "URL", "HTTP", "HTTPS", "UTF-8", "LLM", "README", "FAQ", "MIT", "YAML", "SSH"],
   "types": [
     {
       "name": "abbreviations and ids",
@@ -107,4 +107,5 @@ If a `.goldfish-qp.json` exists in the project or in `~`, the definitions behind
 1. Parse every JSON file you touched. If the plugin is installed locally, `claude plugin validate <plugin folder>` should pass.
 2. Tell the user, briefly, exactly what you created or changed (files and paths) and what you backed up.
 3. Tell the user to **fully restart** Claude Desktop (Cmd+Q) if you edited `settings.json`, then start a **new local session** and send: `Reply with exactly this line and nothing else: PROJ-123, AB-1 and SM`. Each term should appear as a clickable chip under the reply; clicking one opens its card (terms without a definition honestly say so).
-4. Remind them what Goldfish QP does **not** do yet: chips are a row under the reply rather than inline in the text; nothing is verified on every remote or mobile surface.
+4. In a **terminal** (Claude Code CLI, also on a server), clicking needs the fullscreen interface: tell the user to type `/tui fullscreen` in the session (it restarts and resumes). Desktop's Code tab needs nothing extra.
+5. Remind them what Goldfish QP does **not** do yet: chips are a row under the reply rather than inline in the text; nothing is verified on every remote or mobile surface.

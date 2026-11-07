@@ -1,7 +1,7 @@
 {
   "name": "goldfish-qp",
   "version": "0.1.0",
-  "description": "Goldfish QP: Quick Peek for forgetful humans. Click an object, abbreviation or identifier in Claude Code's reply to see its definition from your own sources, with no LLM call. A fork of midudev/better-claude's Quick Peek.",
+  "description": "Click any abbreviation, ticket or pull request in Claude's replies to see what it means. Definitions come from your own files, trackers and GitHub, are marked current or stale, and cost no extra LLM calls. A fork of Quick Peek.",
   "type": "module",
   "license": "MIT",
   "author": "Goldfish QP contributors (fork of Quick Peek by Miguel Ángel Durán, midudev)",
