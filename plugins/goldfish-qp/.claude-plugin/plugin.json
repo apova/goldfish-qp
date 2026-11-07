@@ -1,0 +1,28 @@
+{
+  "name": "goldfish-qp",
+  "version": "0.1.0",
+  "description": "Goldfish QP, Quick Peek for forgetful humans: click an object, abbreviation or identifier in Claude's reply to see its definition from your own sources, with no LLM call. Also previews the paths Claude mentions.",
+  "author": {
+    "name": "Goldfish QP contributors",
+    "url": "https://github.com/apova/goldfish-qp"
+  },
+  "homepage": "https://github.com/apova/goldfish-qp",
+  "repository": "https://github.com/apova/goldfish-qp",
+  "license": "MIT",
+  "keywords": [
+    "definitions",
+    "glossary",
+    "preview",
+    "paths",
+    "hover",
+    "mod"
+  ],
+  "userConfig": {
+    "window": {
+      "type": "boolean",
+      "title": "Preview paths in a window",
+      "description": "On macOS in the terminal, show a path's preview in a small window by the pointer: the file's Quick Look thumbnail, its kind, size and age. Off, the terminal shows a one-line card over the path.",
+      "default": true
+    }
+  }
+}

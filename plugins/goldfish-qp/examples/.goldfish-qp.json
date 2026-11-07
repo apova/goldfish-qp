@@ -1,0 +1,14 @@
+{
+  "types": [
+    {
+      "name": "task",
+      "pattern": "TASK-\\d+",
+      "source": { "path": "tasks.json" }
+    },
+    {
+      "name": "term",
+      "pattern": "\\b(?:SLA|QP|Goldfish)\\b",
+      "source": { "path": "glossary.md", "level": 2 }
+    }
+  ]
+}

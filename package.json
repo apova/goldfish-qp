@@ -1,33 +1,28 @@
 {
-  "name": "better-claude",
-  "version": "0.2.0",
-  "description": "Plugins and mods for Claude Code by midudev: After, Use Haiku, Think Hard, Token Meter, Sub Meter, Context Meter, Image Preview, Quick Peek, Time Machine, Commit and Narrator.",
+  "name": "goldfish-qp",
+  "version": "0.1.0",
+  "description": "Goldfish QP: Quick Peek for forgetful humans. Click an object, abbreviation or identifier in Claude Code's reply to see its definition from your own sources, with no LLM call. A fork of midudev/better-claude's Quick Peek.",
   "type": "module",
   "license": "MIT",
-  "author": "Miguel Ángel Durán (midudev)",
-  "homepage": "https://github.com/midudev/better-claude#readme",
+  "author": "Goldfish QP contributors (fork of Quick Peek by Miguel Ángel Durán, midudev)",
+  "homepage": "https://github.com/apova/goldfish-qp#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/midudev/better-claude.git"
+    "url": "git+https://github.com/apova/goldfish-qp.git"
   },
   "keywords": [
     "claude-code",
     "claude-code-plugin",
     "claude-code-mod",
-    "queue",
-    "prompts",
-    "agents"
+    "definitions",
+    "glossary",
+    "preview"
   ],
   "engines": {
     "node": ">=22"
   },
   "scripts": {
-    "test": "npm run test:node && npm run test:mod",
-    "test:node": "node --test \"plugins/after/test/*.test.js\" \"plugins/time-machine/test/*.test.js\"",
-    "test:mod": "claude plugin test ./plugins/after && claude plugin test ./plugins/use-haiku && claude plugin test ./plugins/think-hard && claude plugin test ./plugins/token-meter && claude plugin test ./plugins/sub-meter && claude plugin test ./plugins/context-meter && claude plugin test ./plugins/image-preview && claude plugin test ./plugins/quick-peek && claude plugin test ./plugins/narrator && claude plugin test ./plugins/time-machine",
-    "test:watch": "node --test --watch \"plugins/after/test/*.test.js\"",
-    "typecheck": "npx -y -p typescript@7 tsc -p plugins/after",
-    "validate": "claude plugin validate . && claude plugin validate ./plugins/after && claude plugin validate ./plugins/use-haiku && claude plugin validate ./plugins/think-hard && claude plugin validate ./plugins/token-meter && claude plugin validate ./plugins/sub-meter && claude plugin validate ./plugins/context-meter && claude plugin validate ./plugins/image-preview && claude plugin validate ./plugins/quick-peek && claude plugin validate ./plugins/commit && claude plugin validate ./plugins/narrator && claude plugin validate ./plugins/time-machine",
-    "eval": "node plugins/after/scripts/eval-haiku.js"
+    "test": "claude plugin test ./plugins/goldfish-qp",
+    "validate": "claude plugin validate . && claude plugin validate ./plugins/goldfish-qp"
   }
 }

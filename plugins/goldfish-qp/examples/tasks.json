@@ -1,0 +1,7 @@
+{
+  "TASK-1": {
+    "name": "Write the quarterly report",
+    "definition": "Draft the report from last quarter's numbers and send it to the team by Friday."
+  },
+  "TASK-2": "A plain string works too: the definition is exactly this text."
+}
