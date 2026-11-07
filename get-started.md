@@ -45,7 +45,12 @@ If `~/.goldfish-qp.json` exists, **merge** into it; never overwrite. Otherwise c
 }
 ```
 
-Create `~/.goldfish-qp/glossary.json` containing `{}` if it does not exist. Entries look like `"KEY": { "name": "...", "definition": "...", "from": "where this is known from" }`. Put more specific types (tickets, pull requests) **before** the broad one: the first type with a definition answers.
+**ASK** the user, once: *"Do you work in more than one environment (several computers, a server, remote or cloud sessions)? Should the definitions be the same everywhere?"*
+
+- **No, only this machine:** keep the local glossary below. Nothing else to do.
+- **Yes, several environments:** the glossary lives in a **private Git repository** that every environment uses (there is no automatic sync otherwise). See "Shared glossary" at the end of this step.
+
+Local glossary: create `~/.goldfish-qp/glossary.json` containing `{}` if it does not exist. Entries look like `"KEY": { "name": "...", "definition": "...", "from": "where this is known from" }`. Put more specific types (tickets, pull requests) **before** the broad one: the first type with a definition answers.
 
 **ASK** the user, once: *"Do you use a ticket tracker with a command line (for example `multica`, `gh`, `jira`) or a GitHub repository whose pull requests you mention? If so, which, and what do ticket numbers look like?"* Skip the rest of this step if the answer is no.
 
@@ -67,6 +72,14 @@ For each one they name:
    `{0}` is the matched text, `{1}`... its regex groups, `{field.path}` a field of the output. A missing field is shown as an error, never as a blank. A `link` needs a URL pattern you know is right; if unsure, omit it and say so.
 3. Do not put secrets, tokens or private repository names anywhere public.
 
+### Shared glossary (only if the user has several environments)
+
+1. **ASK** which private repository to use, or whether to create one. To create: `gh repo create <name> --private --clone` after the user confirms the name, then **check it is private** (`gh repo view <name> --json visibility`). Never put a glossary in a public repository, and never in this plugin's repository.
+2. Put `glossary.json` (`{}` at first) at the root of that repository. Clone it where the machine can reach it (for example `~/goldfish-glossary`) and make the config's `source.path` point to the clone's `glossary.json` instead of `~/.goldfish-qp/glossary.json`. If a local glossary already has entries, move them into the shared one, and tell the user.
+3. **ASK**, once: *"May I commit and push changes to the glossary repository myself, only the glossary file, whenever I add or change a definition?"* Without a yes, make the commits but leave pushing to the user.
+4. Repeat the clone and the config on every other environment (another computer, the server). In a remote or cloud session the glossary has to be checked out inside the session's own repository or workspace, since `~` is not the user's.
+5. Add the sync lines of the next step's rule.
+
 ## 3. Add the rule so you keep the glossary current
 
 Add this block to the user's global `CLAUDE.md` (`~/.claude/CLAUDE.md`; create it if missing, append, keep everything else). Adapt the language to the user's.
@@ -81,6 +94,12 @@ If a `.goldfish-qp.json` exists in the project or in `~`, the definitions behind
 - Never invent a definition. If you do not know the meaning, leave it without an entry (the card honestly says "no definition") and ask in one sentence when it matters.
 - When the user says a term needs no definition, add it to `ignore` in `~/.goldfish-qp.json`.
 - One line after a write: `X: added in glossary.json` / `updated` / `removed`.
+```
+
+**Shared glossary only:** also add these lines to the rule (replace the path with the clone's):
+
+```markdown
+- The glossary is a Git repository, `/PATH/TO/goldfish-glossary`. Before reading or writing it, run `git -C /PATH/TO/goldfish-glossary pull --ff-only`. After a write, commit only `glossary.json` and push it (`git add glossary.json && git commit -m "glossary: X" && git push`), if the user allowed pushing. If the pull or push fails or conflicts, stop and tell the user; never force-push.
 ```
 
 ## 4. Check and hand over
